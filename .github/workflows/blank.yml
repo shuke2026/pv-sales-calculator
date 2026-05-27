@@ -15,6 +15,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Find project directory
+      id: finddir
+      run: |
+        if [ -f "settings.gradle.kts" ]; then
+          echo "dir=." >> $GITHUB_OUTPUT
+        elif [ -f "PVSalesCalculator/settings.gradle.kts" ]; then
+          echo "dir=PVSalesCalculator" >> $GITHUB_OUTPUT
+        elif [ -f "app/settings.gradle.kts" ]; then
+          echo "dir=app" >> $GITHUB_OUTPUT
+        else
+          echo "dir=$(find . -name 'settings.gradle.kts' -not -path '*/\.*' | head -1 | xargs dirname)" >> $GITHUB_OUTPUT
+        fi
+        echo "Project directory: $(cat $GITHUB_OUTPUT | grep dir)"
+
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
@@ -23,9 +37,9 @@ jobs:
 
     - name: Generate Gradle Wrapper
       run: |
+        cd ${{ steps.finddir.outputs.dir }}
         if [ ! -f "gradlew" ]; then
           curl -sL https://raw.githubusercontent.com/gradle/gradle/v8.5.0/gradlew -o gradlew
-          chmod +x gradlew
         fi
         if [ ! -f "gradle/wrapper/gradle-wrapper.jar" ]; then
           mkdir -p gradle/wrapper
@@ -42,10 +56,12 @@ jobs:
         chmod +x gradlew
 
     - name: Build Debug APK
-      run: ./gradlew assembleDebug --no-daemon
+      run: |
+        cd ${{ steps.finddir.outputs.dir }}
+        ./gradlew assembleDebug --no-daemon
 
     - name: Upload Debug APK
       uses: actions/upload-artifact@v4
       with:
         name: app-debug
-        path: app/build/outputs/apk/debug/app-debug.apk
+        path: ${{ steps.finddir.outputs.dir }}/app/build/outputs/apk/debug/app-debug.apk

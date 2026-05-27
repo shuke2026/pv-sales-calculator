@@ -1,33 +1,36 @@
+# This is a basic workflow to help you get started with Actions
+
 name: CI
 
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ main ]
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This workflow contains a single job called "build"
   build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # 1. 拉取代码（升级到了支持 Node.js 24 的 v6）
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v6
 
-      # 2. 安装 Node.js（升级到了支持 Node.js 24 的 v6）
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 20 # 或你项目需要的版本
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
 
-      # 3. 安装依赖 + 构建项目（关键！这里生成安装包/静态文件）
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build # 你的项目构建命令，比如 npm run build / yarn build
-
-      # 4. 上传构建产物到 GitHub（关键！这样 Artifacts 里就有文件了）
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v5 # 支持 Node.js 24 的版本
-        with:
-          name: pv-sales-calculator-build # 制品名称，随便取
-          path: dist/ # 构建产物的目录，比如 Vue/React 默认是 dist/
-          retention-days: 7 # 制品保存7天，可修改
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.

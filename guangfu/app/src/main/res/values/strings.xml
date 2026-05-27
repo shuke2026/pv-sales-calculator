@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">光伏测算系统</string>
+    
+    <!-- Bottom Navigation -->
+    <string name="nav_calculate">测算</string>
+    <string name="nav_clients">客户</string>
+    <string name="nav_reports">报告</string>
+    <string name="nav_profile">我的</string>
+    
+    <!-- Calculate Page -->
+    <string name="title_simple_calc">简易测算</string>
+    <string name="title_professional_calc">专业测算</string>
+    <string name="label_roof_area">屋顶可用面积 (㎡)</string>
+    <string name="label_scenario">安装场景</string>
+    <string name="label_province_city">所在省市</string>
+    <string name="label_industry">用电行业</string>
+    <string name="label_electricity_type">用电类型</string>
+    <string name="label_price_peak">峰电价 (元/kWh)</string>
+    <string name="label_price_valley">谷电价 (元/kWh)</string>
+    <string name="label_price_normal">平电价 (元/kWh)</string>
+    <string name="label_generation_mode">发电模式</string>
+    <string name="label_module_power">组件功率</string>
+    <string name="label_inclination">安装倾角 (°)</string>
+    <string name="label_system_efficiency">系统效率 (%)</string>
+    
+    <!-- Scenarios -->
+    <string name="scenario_residential">户用</string>
+    <string name="scenario_commercial">工商业</string>
+    <string name="scenario_factory">工厂</string>
+    
+    <!-- Electricity Types -->
+    <string name="electricity_residential">居民</string>
+    <string name="electricity_commercial">一般工商业</string>
+    <string name="electricity_industrial">大工业</string>
+    
+    <!-- Generation Modes -->
+    <string name="mode_full_feed">全额上网</string>
+    <string name="mode_self_use">自发自用</string>
+    <string name="mode_excess_feed">余电上网</string>
+    
+    <!-- Industries -->
+    <string name="industry_manufacturing">制造业</string>
+    <string name="industry_chemical">化工</string>
+    <string name="industry_food">食品加工</string>
+    <string name="industry_metal">金属加工</string>
+    <string name="industry_textile">纺织</string>
+    <string name="industry_pharmaceutical">制药</string>
+    <string name="industry_logistics">物流仓储</string>
+    <string name="industry_retail">商业零售</string>
+    
+    <!-- Module Powers -->
+    <string name="module_450w">450W</string>
+    <string name="module_500w">500W</string>
+    <string name="module_550w">550W</string>
+    
+    <!-- Result Labels -->
+    <string name="result_installed_capacity">装机容量</string>
+    <string name="result_module_count">组件数量</string>
+    <string name="result_daily_generation">日均发电</string>
+    <string name="result_monthly_generation">月均发电</string>
+    <string name="result_yearly_generation">年发电量</string>
+    <string name="result_total_25year">25年总发电</string>
+    <string name="result_total_investment">项目总投资</string>
+    <string name="result_monthly_profit">月节电收益</string>
+    <string name="result_yearly_profit">年节电收益</string>
+    <string name="result_total_profit_25">25年总收益</string>
+    <string name="result_payback_static">静态回本周期</string>
+    <string name="result_payback_dynamic">动态回本周期</string>
+    <string name="result_coverage_ratio">用电覆盖比例</string>
+    <string name="result_saving_rate">节电率</string>
+    <string name="result_carbon_reduction">碳减排量</string>
+    <string name="result_tree_equivalent">等效植树</string>
+    
+    <!-- Units -->
+    <string name="unit_kw">kW</string>
+    <string name="unit_kwh">kWh</string>
+    <string name="unit_ton">吨CO₂</string>
+    <string name="unit_year">年</string>
+    <string name="unit_percent">%</string>
+    <string name="unit_tree">棵</string>
+    
+    <!-- Buttons -->
+    <string name="btn_calculate">一键计算</string>
+    <string name="btn_save_record">保存记录</string>
+    <string name="btn_generate_report">生成报告</string>
+    <string name="btn_share">分享</string>
+    <string name="btn_save_pdf">保存PDF</string>
+    <string name="btn_expand_more">展开更多参数</string>
+    <string name="btn_collapse">收起</string>
+    
+    <!-- Clients Page -->
+    <string name="title_clients">客户档案</string>
+    <string name="btn_add_client">添加客户</string>
+    <string name="label_client_name">客户名称</string>
+    <string name="label_client_phone">联系电话</string>
+    <string name="label_client_address">地址</string>
+    <string name="label_client_remark">备注</string>
+    <string name="placeholder_search_client">搜索客户...</string>
+    
+    <!-- Reports Page -->
+    <string name="title_reports">报告记录</string>
+    <string name="label_no_reports">暂无报告记录</string>
+    
+    <!-- Profile Page -->
+    <string name="title_profile">我的</string>
+    <string name="label_settings">设置</string>
+    <string name="label_about">关于我们</string>
+    <string name="label_version">版本 1.0.0</string>
+    
+    <!-- Messages -->
+    <string name="msg_calculate_success">测算完成</string>
+    <string name="msg_save_success">保存成功</string>
+    <string name="msg_pdf_generated">PDF生成成功</string>
+</resources>
